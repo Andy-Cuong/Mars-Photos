@@ -1,0 +1,10 @@
+- Network API acts as a data source
+- Repository then gathers different data sources, perform business logic, resovles any conflicts,
+	then acts as a single source of truth for the application
+- It is better for repositories and ViewModel to be loosely coupled, so use dependency injection
+	with repositories as dependencies
+- All dependencies can be contained in an application container, so put the repositories inside 
+	that (dependency) container
+- viewModel() constructor cannot take arguments, so use ViewModel Factory to extract a customed
+	application class which stores the (dependency) container. That container can be used to extract
+	the dependency repository which can now be passed to the ViewModel Factory initializer
